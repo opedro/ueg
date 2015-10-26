@@ -5,8 +5,8 @@
 
 function connect(){
 
-    //$conexao = mysqli_connect("mysql.hostinger.com.br","u182545652_admin","pauloviado", "u182545652_ueg");
-    $conexao = mysqli_connect("localhost","root","", "ueg");
+    $conexao = mysqli_connect("mysql.hostinger.com.br","u182545652_admin","pauloviado", "u182545652_ueg");
+    //$conexao = mysqli_connect("localhost","root","", "ueg");
 
     if (!$conexao) {
         die("Erro na conexão!");
