@@ -20,7 +20,7 @@ $(document).ready(function(){
                     '<td>'+ data[i].nome + '</td>' +
                     '<td>'+ data[i].id_cargo + '</td>'+
                     '<td>'+ data[i].apelido + '</td>' +
-                    '<td><img src="'+ data[i].apelido + '"></td>' +
+                    '<td><img src="'+ data[i].foto + '"></td>' +
                     
                     '</tr>'
                 );
