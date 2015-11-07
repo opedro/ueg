@@ -7,8 +7,9 @@ $(document).ready(function(){
 
     $.getScript(url,function(){
         var params = {
-            nome: '',
-            acao: 1
+            acao: 3,
+            id_uev: 1,
+            senha: 1
         }
         getDados(params, function(data){
             data = data.data;
@@ -16,10 +17,10 @@ $(document).ready(function(){
             for(i = 0; i < data.length; i++){
                 $('tbody').append(
                     '<tr>' +
-                    '<td>'+ data[i].id_candidato+'</td>' +
-                    '<td>'+ data[i].nome + '</td>' +
-                    '<td>'+ data[i].id_cargo + '</td>'+
-                    '<td>'+ data[i].apelido + '</td>' +
+                    '<td>'+ data[i].id_cargo+'</td>' +
+                    '<td>'+ data[i].desc_cargo + '</td>' +
+                    '<td>'+  + '</td>'+
+                    '<td>'+  + '</td>' +
                     '</tr>'
                 );
             }
