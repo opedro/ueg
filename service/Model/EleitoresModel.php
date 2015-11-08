@@ -24,7 +24,23 @@ class EleitoresModel extends Connection{
         }else{
             return false;
         }
-    @todo eleitoresDTO
+    }
+    public function getEleitoresByUEV($id_uev){
+        $conexao = $this->conn;
+
+        // Verifica se a variável está vazia
+
+        $sql = "SELECT * FROM eleitor where id_uev = '$id_uev'";
+
+        $result = mysqli_query($conexao->conexao, $sql);
+
+        $cont = mysqli_affected_rows($conexao->conexao);
+
+        if($cont > 0){
+            return $result;
+        }else{
+            return false;
+        }
     }
 
 }

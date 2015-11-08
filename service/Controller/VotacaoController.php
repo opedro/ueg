@@ -20,6 +20,7 @@ class VotacaoController{
         if ($isValid) {
             $cargosView = new CargosDTO();
             $candidatosView = new CandidatosDTO();
+            $eleitoresView = new EleitoresDTO();
             $votacaoView = new VotacaoDTO();
             $i = 0;
             $j = 0;
@@ -40,7 +41,14 @@ class VotacaoController{
                     $i++;
                 }
             }
-            $eleitores = $this->EleitoresModel->getEleitoresByUEV();
+            $eleitores = $this->EleitoresModel->getEleitoresByUEV($id_uev);
+            if($eleitores){
+                $i = 0;
+                while($eleitor = mysqli_fetch_array($eleitores)){
+                    $json['data']['eleitor'][$i] = $eleitoresView->getJsonVotacao($eleitor);
+                    $i ++;
+                }
+            }
             $json['success'] = true;
 
             echo json_encode($json);

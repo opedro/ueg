@@ -10,18 +10,21 @@ require_once("../config.php");
 require_once('CandidatosController.php');
 require_once('CargosController.php');
 require_once('VotacaoController.php');
+require_once('EleitoresController.php');
 require_once('DefaultReturn.php');
 
 
 //Models
 require_once("../Model/Connection.php");
 require_once("../Model/VotacaoModel.php");
+require_once("../Model/EleitoresModel.php");
 require_once("../Model/CandidatosModel.php");
 require_once("../Model/CargosModel.php");
 
 
 //Views
 require_once("../View/VotacaoDTO.php");
+require_once("../View/EleitoresDTO.php");
 require_once("../View/CandidatosDTO.php");
 require_once("../View/CargosDTO.php");
 
