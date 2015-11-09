@@ -28,12 +28,12 @@ class CargosController{
         }
     }
 
-    public function defaultRequest()
+    public function defaultRequest($data)
     {
         $acao = $this->acao;
         switch ($acao) {
             case 2:
-                $nome = isset($_POST["nome"]) ? $_POST["nome"] : '';
+                $nome = isset($data["nome"]) ? $data["nome"] : '';
                 $this->getCargos($nome);
 
                 break;

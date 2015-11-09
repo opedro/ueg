@@ -7,7 +7,7 @@ function getDados(params, callback) {
         url: '../service/controller/service.php',
         dataType: 'json',
         type: 'post',
-        data: params,
+        data: JSON.stringify(params),
         success: function(data){
             if(data.success) {
                 callback(data);

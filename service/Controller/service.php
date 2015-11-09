@@ -31,21 +31,29 @@ require_once("../View/CargosDTO.php");
 
 
 //$nome = $_GET['nome'];
-$action = $_POST['acao'];
+$data = file_get_contents('php://input');
+$data = json_decode($data, true);
+$action = $data['acao'];
+
 if($action){
     switch($action){
         case '1':
             $candidato = new CandidatosController($action);
-            $candidato->defaultRequest();
+            $candidato->defaultRequest($data);
             break;
         case '2':
             $cargo = new CargosController($action);
-            $cargo->defaultRequest();
+            $cargo->defaultRequest($data);
             break;
         case '3':
             $votacao = new VotacaoController($action);
-            $votacao->defaultRequest();
+            $votacao->defaultRequest($data);
             break;
+        case '4':
+            $votacao = new VotacaoController($action);
+            $votacao->defaultRequest($data);
+            break;
+
 
     }
 }else{

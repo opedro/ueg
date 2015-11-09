@@ -58,18 +58,42 @@ class VotacaoController{
         }
     }
 
-    public function defaultRequest()
+    public function recebeVotos($data){
+        $id_uev = $data["id_uev"] || '';
+        $senha = $data["senha"] || '';
+
+        $isValid = $this->votacaoModel->checkUev($id_uev, $senha);
+
+        if ($isValid) {
+            $cargos = $data["cargo"];
+            foreach($cargos as $cargo){
+                foreach($cargo['candidatos'] as $candidato) {
+                    $vot = $this->votacaoModel->addVote($id_uev, $candidato['id_candidato'], $candidato['qtd_votos']);
+                }
+            }
+            $message = "Foram contabilizados ".$vot." votos válidos";
+            echo json_encode(new DefaultReturn(true, null, $message));
+        } else {
+            $error = "ID ou Senha da UEV inválida";
+            echo json_encode(new DefaultReturn(true, null, $error));
+        }
+    }
+
+
+    public function defaultRequest($data)
     {
         $acao = $this->acao;
         switch ($acao) {
             case 3:
-                $id_uev = isset($_POST["id_uev"]) ? $_POST["id_uev"] : '';
-                $senha = isset($_POST["senha"]) ? $_POST["senha"] : '';
+                $id_uev = isset($data["id_uev"]) ? $data["id_uev"] : '';
+                $senha = isset($data["senha"]) ? $data["senha"] : '';
 
                 $this->getVotacao($id_uev, $senha);
 
                 break;
-
+            case 4:
+                $this->recebeVotos($data);
+                break;
             default:
                 $json['success'] = true;
                 $json['result'] = "Acao nao encontrada";

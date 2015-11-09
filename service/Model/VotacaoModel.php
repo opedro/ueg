@@ -24,7 +24,20 @@ class VotacaoModel extends Connection{
         }else{
             return false;
         }
+    }
+    public function addVote($id_candidato, $id_uev, $quant_votos){
+        $conexao = $this->conn;
 
+        $sql = "INSERT INTO eleicao(id_uev, id_candidato, quant_votos) VALUES ($id_uev, $id_candidato, $quant_votos)";
+        $result = mysqli_query($conexao->conexao, $sql);
+
+        $cont = mysqli_affected_rows($conexao->conexao);
+
+        if($cont > 0){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

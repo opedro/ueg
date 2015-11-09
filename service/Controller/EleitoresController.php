@@ -33,7 +33,7 @@ class EleitoresController{
         $acao = $this->acao;
         switch ($acao) {
             case 2:
-                $nome = isset($_POST["nome"]) ? $_POST["nome"] : '';
+                $nome = isset($data["nome"]) ? $data["nome"] : '';
                 $this->getEleitores($nome);
 
                 break;
