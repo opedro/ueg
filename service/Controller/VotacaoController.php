@@ -39,6 +39,7 @@ class VotacaoController{
                         }
                     }
                     $i++;
+                    $j=0;
                 }
             }
             $eleitores = $this->EleitoresModel->getEleitoresByUEV($id_uev);

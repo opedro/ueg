@@ -18,7 +18,9 @@ class CandidatosDTO
 
             "apelido" => utf8_encode($linha["apelido"]),
 
-            "id_candidato" => utf8_encode($linha["id_candidato"])
+            "id_candidato" => utf8_encode($linha["id_candidato"]),
+
+            "foto" => utf8_encode($linha["foto"])
         );
         return $ret;
     }

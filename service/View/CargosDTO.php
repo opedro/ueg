@@ -14,7 +14,8 @@ class CargosDTO
         $ret = array(
             "desc_cargo" => utf8_encode($linha["desc_cargo"]),
 
-            "id_cargo" => utf8_encode($linha["id_cargo"])
+            "id_cargo" => utf8_encode($linha["id_cargo"]),
+            "candidatos"=> []
         );
         return $ret;
     }
